@@ -1,5 +1,5 @@
 # LiveTexts
-Add Flyping Texts on Your Server! Like LiveSigns!
+Add Flying Texts on Your Server! Like LiveSigns!
 
 Plugin by EmreTr1
 
