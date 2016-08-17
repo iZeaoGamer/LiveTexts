@@ -132,11 +132,14 @@
    		parent::__construct(
    		$name,
    		"LiveTexts plugin main Command",
-   		"/lt <add|edit|remove>");
+   		"/lt <add|cancel|remove>");
    		$this->setPermission("livetext.command.use");
    	}
    	
    	public function execute(CommandSender $s, $label, array $args){
+                if(!$s->hasPermission("livetext.command.use")){
+                 return true;
+                }
    		if(!empty($args[0])){
    			$main=LiveTexts::getInstance();
    			$core=LiveTexts::getInstance();
