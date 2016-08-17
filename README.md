@@ -10,3 +10,7 @@ Plugin by EmreTr1
 - /lt cancel = Cancel event.
 
 More Commands coming soon...
+
+# Bug? Crash?
+
+Please report me!
