@@ -1,7 +1,11 @@
 # LiveTexts
 Add Flying Texts on Your Server! Like LiveSigns!
+This plugin can add FloatingText to your Server!
+
+ - Pocketmine plugin -
 
 Plugin by EmreTr1
+Current Version: 1.1
 
 # Commands:
 
