@@ -7,6 +7,13 @@ This plugin can add FloatingText to your Server!
 Plugin by EmreTr1
 Current Version: 1.1
 
+# Variables:
+
+- {maxplayers} = Show MaxPlayers
+- {onlines} = Show OnlinePlayers in Server
+- {tps} = Show Server Tps(TicksPerSecond)
+- {worldscount} = Show count of Worlds 
+
 # Commands:
 
 - /lt add <textname> = Add a LiveText
