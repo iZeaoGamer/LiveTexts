@@ -99,6 +99,7 @@
    		  $entity=Entity::createEntity("Human", $chunk, $nbt);
    		  $entity->spawnToAll();
    			 $entity->setNameTag("$tag");
+    $this->texters[$entity->getId()]=true;
     			$entity->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
 			  $entity->setDataProperty(Entity::DATA_SHOW_NAMETAG, Entity::DATA_TYPE_BYTE, 1);
    	}
@@ -120,7 +121,11 @@
    			      	 $yazi=fread($dosya, filesize($this->getDataFolder().$ad));
    				     fclose($dosya);
    						$this->texters[$entity->getId()]=true;
-   						$entity->setNameTag("$yazi");
+   $onlines=$this->getServer()->getOnlinePlayers();
+   $maxplayers=$this->getServer()->getMaxPlayers();
+   $tps=$this->getServer()->getTicksPerSecond();
+   $worldscount=$this->getServer()->getLevels();
+   						$entity->setNameTag(str_ireplace("{onlines}", count($onlines), str_ireplace("{maxplayers}", $maxplayers, str_ireplace("{tps}", $tps, str_ireplace("{worldscount}", count($worldscount), "$yazi")))));
    						$uuid=$entity->getUniqueId();
    						$this->getServer()->removePlayerListData($uuid, [$p]);
    						$n=$entity->getNameTag();
