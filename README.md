@@ -17,6 +17,7 @@ Current Version: 1.3
 
 # Commands:
 
+- /lt = Show Help Page
 - /lt add <textname> = Add a LiveText with File
 - /lt addtext <text(unlimited args)> = Add a LiveText without File
 - /lt updateall = if you used old version. Pls write this command and update all old LiveTexts to New LiveTexts
