@@ -195,6 +195,27 @@
    				    }
    				    $s->sendMessage("§6[LiveTexts]§a All old LiveTexts has been updated!");
    				    break;
+               case "tpme":
+       if(!empty($args[1])){
+       	$entities=$s->getLevel()->getEntities();
+       	$target=null;
+       	foreach($entities as $text){
+       		if($text instanceof Text){
+       			if(strpos($args[1], $text->getNameTag())!=false or $text->getName()==$args[1]){
+       				$target=$text;
+       			}
+       		}
+       	}
+       	if($target!=null){
+       		$target->teleport($s);
+       		$s->sendMessage("§6[LiveTexts] §aLiveText teleported to you");
+       	}else{
+       		$s->sendMessage("§6[LiveTexts] §cInvalid LiveText!");
+       	}
+       }else{
+       	$s->sendMessage("§6[LiveTexts] §eUsage: /lt tpme <livetextname>");
+       }
+       break;
    		  case "cancel":
    		      if(isset($main->removers[$s->getName()])){
    		      	 unset($main->removers[$s->getName()]);
