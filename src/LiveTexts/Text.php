@@ -55,7 +55,7 @@
     $pk->eid = $this->getId();
     $pk->uuid = UUID::fromRandom();
     $pk->x = $this->x;
-    $pk->y = $this->y - 1.62;
+    $pk->y = $this->y + 1.5;
     $pk->z = $this->z;
     $pk->speedX = 0;
     $pk->speedY = 0;
