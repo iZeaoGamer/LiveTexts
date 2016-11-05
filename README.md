@@ -1,6 +1,12 @@
 # LiveTexts
+## This Indev 0.16 Branch
+### We are Testing 0.16 for LiveTexts
+### And we will update 1.4 version soon
+
 Add Flying Texts on Your Server! Like LiveSigns!
 This plugin can add FloatingText to your Server!
+
+## Go to Stabil(0.15) Branch : 
 
  - Pocketmine plugin -
 
