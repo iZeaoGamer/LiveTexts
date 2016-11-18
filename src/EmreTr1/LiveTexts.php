@@ -1,5 +1,5 @@
 <?php
-
+   //Please write "/lt updateall" in Game before Start!
    //Version of LiveTexts 1.4pre
    
    namespace LiveTexts;
@@ -8,6 +8,7 @@
    use pocketmine\Player;
    use pocketmine\Server;
    use pocketmine\entity\Entity;
+   use pocketmine\entity\Human;
    use pocketmine\math\Vector3;
    use pocketmine\event\Listener;
    use pocketmine\command\Command;
@@ -204,7 +205,7 @@
    				    	$entities=$level->getEntities();
    				    	foreach($entities as $entity){
    				    		if(isset($entity->namedtag->LiveTextName)){
-   				    			if(!isset($entity->namedtag->infos)){
+   				    			if(!isset($entity->namedtag->infos) or (!$entity instanceof Human){
    				    				$ad=$entity->namedtag->LiveTextName;
    				    				$yazi = file_get_contents($main->getDataFolder()."$ad");
    				    				$main->createLiveText($entity->x, $entity->y + 1, $entity->z, $entity->getSkinData(), $entity->getSkinId(), $entity->getInventory(), $entity->yaw, $entity->pitch, $entity->chunk, $entity->namedtag->CustomName, "$ad", $dosya);
