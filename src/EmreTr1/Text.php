@@ -9,6 +9,7 @@
    use pocketmine\math\Vector3;
    use pocketmine\utils\UUID;
    use pocketmine\entity\Entity;
+   use pocketmine\entity\Human;
    use pocketmine\nbt\tag\CompoundTag;
    use pocketmine\level\format\FullChunk;
    use pocketmine\event\entity\EntityDamageEvent;
