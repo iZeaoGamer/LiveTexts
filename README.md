@@ -10,7 +10,7 @@ This plugin can add FloatingText to your Server!
  - Pocketmine plugin -
 
 Plugin by EmreTr1
-Current Version: 1.3
+Current Version: 1.4pre
 
 # Variables:
 
@@ -19,6 +19,28 @@ Current Version: 1.3
 - {tps} = Show Server Tps(TicksPerSecond)
 - {worldscount} = Show count of Worlds 
 - {line} = Create a New Line(You can use on without File of LiveTexts)
+
+## For 1.4pre
+
+- {ip} = Show Server IP Address
+- {port} = Show Server Port
+- {motd} = Show Server motd
+- {network} = Show Server Network Name
+### SpecialPlayer Variables:
+
+- {name} = Player name
+- {hunger} = Player Hunger
+- {health} = Player Health
+- {maxhealth} = Player Max Health
+- {nametag} = Player NameTag
+- {nbt} = Player NBT data
+- {level} = Player level name
+
+## Fixed Bugs on 1.4pre:
+
+- Fixed LiveText not update bug
+- Fixed LaggClear bug
+- Fixed "ō" bug(i guess)
 
 # Commands:
 
@@ -29,7 +51,9 @@ Current Version: 1.3
 - /lt remove = Remove LiveText
 - /lt cancel = Cancel event.
 
-More Commands coming soon...
+## For 1.4 new commands:
+- /lt tpme <livetextname(short)> : (coming soon)
+
 
 # Bug? Crash?
 
