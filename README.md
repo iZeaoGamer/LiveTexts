@@ -10,7 +10,7 @@ This plugin can add FloatingText to your Server!
  - Pocketmine plugin -
 
 Plugin by EmreTr1
-Current Version: 1.4pre
+Current Version: 1.4pre(not tested yet)
 
 # Variables:
 
