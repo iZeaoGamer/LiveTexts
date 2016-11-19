@@ -2,7 +2,7 @@
 
    //Version of LiveTexts 1.4pre
    
-   namespace LiveTexts;
+   namespace EmreTr1;
    
    use pocketmine\Player;
    use pocketmine\item\Item;
