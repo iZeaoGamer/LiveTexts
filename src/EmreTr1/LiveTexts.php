@@ -2,7 +2,7 @@
    //Please write "/lt updateall" in Game before Start!
    //Version of LiveTexts 1.4pre
    
-   namespace LiveTexts;
+   namespace EmreTr1;
    
    use pocketmine\plugin\PluginBase;
    use pocketmine\Player;
