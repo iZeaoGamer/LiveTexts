@@ -44,7 +44,7 @@
    		 $text=LiveTexts::getInstance()->replacedText($tag);
    		 $this->setNameTag($text);
    		}else{
-   			$tag=$this->namedtag->CustomName; // hmm, not fixed now !
+   			$tag=$this->getNameTag(); //fixed now! No update bug !
    			$text=LiveTexts::getInstance()->replacedText($tag);
    			$this->setNameTag($text);
    		}
