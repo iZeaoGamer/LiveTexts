@@ -1,8 +1,8 @@
 # LiveTexts
 
-## This is Stabil Branch
 ## Now avilable Phar file
-### Supporting 0.15
+
+##Supporting 0.16+
 
 Add Flying Texts on Your Server! Like LiveSigns!
 This plugin can add FloatingText to your Server!
@@ -10,7 +10,7 @@ This plugin can add FloatingText to your Server!
  - Pocketmine plugin -
 
 Plugin by EmreTr1
-Current Version: 1.4pre(not tested yet)
+Current Version: 1.4pre(beta)
 
 # Variables:
 
