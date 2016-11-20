@@ -70,6 +70,7 @@
     $this->setNameTagVisible(true);
     $pk->metadata = $this->dataProperties;
     $p->dataPacket($pk);
+    $this->saveNBT();
     parent::spawnTo($p);
    	}
    }
