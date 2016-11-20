@@ -64,7 +64,7 @@
     $pk->yaw = 0;
     $pk->pitch = 0;
     $pk->item = Item::get(0);
-    $this->setDataFlag(Entity::DATA_FLAGS => [Entity::DATA_TYPE_LONG, 0 ^ 1 << Entity::DATA_FLAG_INVISIBLE],);
+    $this->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true, Entity::DATA_TYPE_BYTE);
     $this->setNameTag($main->replaceForPlayer($p, $this->text));
     $this->setNameTagAlwaysVisible(true);
     $this->setNameTagVisible(true);
