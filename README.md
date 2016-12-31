@@ -2,7 +2,7 @@
 
 ## Now avilable Phar file
 
-##Supporting 0.16+
+##Supporting Mcpe 1.0
 
 Add Flying Texts on Your Server! Like LiveSigns!
 This plugin can add FloatingText to your Server!
@@ -18,10 +18,7 @@ Current Version: 1.4pre(beta)
 - {onlines} = Show OnlinePlayers in Server
 - {tps} = Show Server Tps(TicksPerSecond)
 - {worldscount} = Show count of Worlds 
-- {line} = Create a New Line(You can use on without File of LiveTexts)
-
-## For 1.4pre
-
+- {line} = Create a New Line(You can use on without File of LiveTexts) 
 - {ip} = Show Server IP Address
 - {port} = Show Server Port
 - {motd} = Show Server motd
