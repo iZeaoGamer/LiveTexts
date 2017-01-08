@@ -12,7 +12,7 @@
    use pocketmine\entity\Entity;
    use pocketmine\entity\Human;
    use pocketmine\nbt\tag\CompoundTag;
-   use pocketmine\level\format\FullChunk;
+   use pocketmine\level\format\generic\GenericChunk;
    use pocketmine\event\entity\EntityDamageEvent;
    use pocketmine\network\protocol\AddPlayerPacket;
    
@@ -20,7 +20,7 @@
    	
    	public $text;
    	
-   	public function __construct(FullChunk $chunk, CompoundTag $nbt){
+   	public function __construct(GenericChunk $chunk, CompoundTag $nbt){
 	   	parent::__construct($chunk, $nbt);
 		  $this->text = $nbt->CustomName;
 	  }
