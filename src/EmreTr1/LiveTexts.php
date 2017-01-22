@@ -66,7 +66,7 @@
    		$this->config=new Config($this->getDataFolder() . "texts.yml", Config::YAML);
     		if(!$this->config->get("LiveTexts")){
    			$opt=[
-   			"File"=>"welcome.txt"
+   			"File"=>"welcome.txt",
    			'Permissions' => []];
    			$this->config->set("LiveTexts", array());
    			$cfg=$this->config->get("LiveTexts");
@@ -280,7 +280,7 @@
    				    			    	$s->sendMessage($pre.'Usage: /lt edit <eid> format <file|tag>');
    				    			    }
    				    			    break;
-   				    			case 'tp'
+   				    			case 'tp':
    				    			case 'teleport':
    				    			    if(!empty($args[3])){
    				    			    	@list($x, $y, $z) = explode(":", $args[3]);
@@ -348,7 +348,7 @@
    				    	  	  $yaw=$s->yaw;
    				    	  	  $pitch=$s->pitch;
    				    	  	  $inv=$s->getInventory();
-   				    	  	  $main->createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $s->chunk, $yazi, $args[1], $dosya);
+   				    	  	  $main->createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $s->chunk, $yazi, $args[1], $yazi);
    				    	  	  $s->sendMessage("§6[LiveTexts]§a Text created.");
    				    	  }else{
    				    	  	 $s->sendMessage("§6[LiveTexts] §cText not found on texts.yml");
