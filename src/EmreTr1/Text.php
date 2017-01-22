@@ -36,8 +36,9 @@
 		  }
 		  
 		  $ltname = $nbt->LiveTextName->getValue();
-		  $cfg = $main->config->get("LiveTexts")[$ltname];
-		  if(isset($cfg['Permissions']) and !empty($cfg['Permissions'])){
+		  if(!isset($main->config->get("LiveTexts")[$lname]))return false;
+												
+		if(isset($cfg['Permissions']) and !empty($cfg['Permissions'])){
 		  	 foreach($cfg['Permissions'] as $perm){
 		  	 	 $nbt->Permissions->{trim($perm)} = new StringTag($perm, $perm);
 		  	 }
