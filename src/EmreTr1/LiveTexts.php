@@ -321,6 +321,9 @@
    				    			    	$s->sendMessage("§6[LiveTexts] §c{$args[3]} permission removed!");
    				    			    }
    				    			    break;
+                           case 'save':
+                              //TODO: save the livetexts to a data folder
+                              break;
    				    		}
    				    	}
    				    }else{
