@@ -71,7 +71,7 @@
     $this->setNameTagVisible(true);
     $pk->metadata = $this->dataProperties;
     $p->dataPacket($pk);
-	Server::getInstance()->removePlayerListData($this->getUniqueId(), [$p]);	
+    Server::getInstance()->removePlayerListData($this->getUniqueId(), [$p]);	
     $this->saveNBT();
     parent::spawnTo($p);
    	}
