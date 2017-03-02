@@ -14,7 +14,7 @@ Current Version: 1.4pre(beta)
 
 **bug list and bugs that are fixt
 
-[  ] player crash somtimes
+[ x ] player crash somtimes
 
 that is bug list nothing big
 
