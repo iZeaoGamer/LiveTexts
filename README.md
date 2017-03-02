@@ -2,7 +2,7 @@
 
 ## Now avilable Phar file
 
-##Supporting Mcpe 1.0
+##Supporting Mcpe 1.0.3
 
 Add Flying Texts on Your Server! Like LiveSigns!
 This plugin can add FloatingText to your Server!
