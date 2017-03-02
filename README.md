@@ -12,7 +12,7 @@ This plugin can add FloatingText to your Server!
 Plugin by EmreTr1
 Current Version: 1.4pre(beta)
 
-**bug list and bugs that are fixt
+##bug list and bugs that are fixt
 
 [  ] player crash somtimes
 
