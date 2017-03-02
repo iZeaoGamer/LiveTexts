@@ -25,6 +25,7 @@
    use pocketmine\nbt\tag\FloatTag;
    use pocketmine\nbt\tag\ShortTag;
    use pocketmine\nbt\tag\StringTag;
+   use pocketmine\level\Level;
          
    class LiveTexts extends PluginBase implements Listener{
    	
@@ -117,7 +118,7 @@
    		return $text;
    	}
    	
-   	public function createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $chunk, $tag, $name, $file=""){
+   	public function createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $level, $tag, $name, $file=""){
    	 $nbt = new CompoundTag;
    	 $nbt->Pos = new ListTag("Pos", [
    	 new DoubleTag("", $x),
@@ -135,7 +136,7 @@
     $nbt->LiveTextName= new StringTag("LiveTextName", $name);
     $nbt->CustomName=new StringTag("CustomName", $tag);
     $nbt->infos=new ListTag("infos", ["file"=>$file, "datafolder"=>$this->getDataFolder()."$name"]);
-   		$entity=Entity::createEntity("Text", $chunk, $nbt, $tag);
+   		$entity=Entity::createEntity("Text", $level, $nbt, $tag);
    		$entity->spawnToAll();
    	}
    }
@@ -149,7 +150,7 @@
    		$name,
    		"LiveTexts plugin main Command",
    		"/lt <add|cancel|remove>");
-   		$this->setPermission("livetext.command.use");
+   		$this->setPermission("livetext.command.use"); //chunk
    	}
    	
    	public function execute(CommandSender $s, $label, array $args){
@@ -173,7 +174,7 @@
    				    	$text.=$t." ";
    				    }
    				    $replaced=$main->replacedText($text);
-   				    $main->createLiveText($s->x, $s->y - 1, $s->z, $s->getSkinData(), $s->getSkinId(), $s->getInventory(), $s->yaw, $s->pitch, $s->chunk, $replaced, $args[0]);
+   				    $main->createLiveText($s->x, $s->y - 1, $s->z, $s->getSkinData(), $s->getSkinId(), $s->getInventory(), $s->yaw, $s->pitch, $s->level, $replaced, $args[0]);
    				    $s->sendMessage("§6[LiveTexts] §eLiveText created(not file)");
    				    break;
    				case "add":
@@ -190,7 +191,7 @@
    				    	  	  $yaw=$s->yaw;
    				    	  	  $pitch=$s->pitch;
    				    	  	  $inv=$s->getInventory();
-   				    	  	  $main->createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $s->chunk, $yazi, $args[1], $dosya);
+   				    	  	  $main->createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $s->level, $yazi, $args[1], $dosya);
    				    	  	  $s->sendMessage("§6[LiveTexts]§a Text created.");
    				    	  }else{
    				    	  	 $s->sendMessage("§6[LiveTexts] §cText not found on texts.yml");
@@ -208,7 +209,7 @@
    				    			if(!isset($entity->namedtag->infos) or (!$entity instanceof Human)){
    				    				$ad=$entity->namedtag->LiveTextName;
    				    				$yazi = file_get_contents($main->getDataFolder()."$ad");
-   				    				$main->createLiveText($entity->x, $entity->y + 1, $entity->z, $entity->getSkinData(), $entity->getSkinId(), $entity->getInventory(), $entity->yaw, $entity->pitch, $entity->chunk, $entity->namedtag->CustomName, "$ad", $dosya);
+   				    				$main->createLiveText($entity->x, $entity->y + 1, $entity->z, $entity->getSkinData(), $entity->getSkinId(), $entity->getInventory(), $entity->yaw, $entity->pitch, $entity->level, $entity->namedtag->CustomName, "$ad", $dosya);
    				    				$entity->close();
    				    			}
    				    		}
