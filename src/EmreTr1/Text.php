@@ -37,7 +37,7 @@
    		if(!isset($this->namedtag->infos)){
    			return false;
    		}
-   		$info=$this->namedtag->infos;
+   		$info=$this->namedtag->infos->getValue();
    		$file=$info["file"];
    		if($file!=""){
    		 $data=$info["datafolder"];
