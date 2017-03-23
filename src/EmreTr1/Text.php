@@ -38,8 +38,8 @@
    			return false;
    		}
    		$info=$this->namedtag->infos->getValue();
-   		$file=$info["file"];
-   		if($file!=""){
+   		$file=$info["file"] ?? null;
+   		if($file!=null){
    		 $data=$info["datafolder"];
    		 $tag = file_get_contents($data); // fixed "ō" bug !
    		 $text=LiveTexts::getInstance()->replacedText($tag);
