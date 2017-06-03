@@ -1,13 +1,9 @@
-# LiveTexts
+# LiveTexts-Kaymak
 
-#
+Soft version of LiveTexts
 
-## For 1.4 new commands:
-- /lt tpme <livetextname(short)> : (coming soon)
+## Commands:
 
-## For color:
- - use: Â§
+/lt add, /lt addtext, /lt id
 
-# Bug? Crash?
-
-Please report me!
+### Note: Old LiveTexts will remove D:
