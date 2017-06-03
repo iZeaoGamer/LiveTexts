@@ -4,3 +4,6 @@ version: Kaymak
 api: [3.0.0-ALPHA4, 3.0.1]
 author: EmreTr1
 description: Like LiveSigns plugin just more basic.
+commands:
+ lt:
+  description: LiveTexts command
