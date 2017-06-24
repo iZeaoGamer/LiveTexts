@@ -16,7 +16,7 @@ class Text extends Zombie{
 	public function onUpdate($tick){
 		if($this->closed) return;
 		
-		if(time() % 3 == 0){
+		if($tick % 20 == 0){
 		 $this->setNameTag(LiveTexts::replacedText($this->getNameTag()));
 		}
 	}
