@@ -6,6 +6,6 @@ Soft version of LiveTexts
 
 ## Commands:
 
-/lt add, /lt addtext, /lt id
+/lt add, /lt addtext, /lt id, /lt remove
 
 ### Note: Old LiveTexts will remove D:
