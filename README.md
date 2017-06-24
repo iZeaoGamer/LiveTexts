@@ -2,7 +2,7 @@
 
 Soft version of LiveTexts
 
-### Current Supported MCPE Version : 1.0.x
+### Current Supported MCPE Version : 1.1.x
 
 ## Commands:
 
