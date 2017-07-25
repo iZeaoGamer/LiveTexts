@@ -103,7 +103,7 @@
    		return $text;
    	}
    	
-   	public function replaceForPlayer(Player $p, string $text){
+   	public function replaceForPlayer(Player, $p, string $text){
    		$specialvars = [
    		"{name}"=>$p->getName(),
    		"{nametag}"=>$p->getNameTag(),
