@@ -174,7 +174,7 @@
    				    	$text.=$t." ";
    				    }
    				    $replaced=$main->replacedText($text);
-   				    $main->createLiveText($s->x, $s->y - 1, $s->z, $s->getSkinData(), $s->getSkinId(), $s->getInventory(), $s->yaw, $s->pitch, $s->level, $replaced, $args[0]);
+   				    $main->createLiveText($s->x, $s->y - 1, $s->z, $ev->getEntityData(), $ev->getEntityId(), $s->getInventory(), $s->yaw, $s->pitch, $s->level, $replaced, $args[0]);
    				    $s->sendMessage("§6[LiveTexts] §eLiveText created(not file)");
    				    break;
    				case "add":
@@ -186,12 +186,12 @@
    				    	  	  $x=$s->x;
    				    	  	  $y=$s->y;
    				    	  	  $z=$s->z;
-   				    	  	  $skin=$s->getSkinData();
-   				    	  	  $skinId=$s->getSkinId();
+   				    	  	  $skin=$s->getEntityData();
+   				    	  	  $skinId=$s->getEntityId();
    				    	  	  $yaw=$s->yaw;
    				    	  	  $pitch=$s->pitch;
    				    	  	  $inv=$s->getInventory();
-   				    	  	  $main->createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $s->level, $yazi, $args[1], $dosya);
+   				    	  	  $main->createLiveText($x, $y, $z, $skin, $entityId, $inv, $yaw, $pitch, $s->level, $yazi, $args[0], $dosya);
    				    	  	  $s->sendMessage("§6[LiveTexts]§a Text created.");
    				    	  }else{
    				    	  	 $s->sendMessage("§6[LiveTexts] §cText not found on texts.yml");
