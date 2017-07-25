@@ -109,6 +109,7 @@ class LiveTexts extends PluginBase implements Listener{
 		$onlines=count($server->getOnlinePlayers());
 		$maxplayers=$server->getMaxPlayers();
 		$worldsc=count($server->getLevels());
+		$network=$server->getTicksPerSecond();
 		$variables=[
 		"{line}"=>"\n",
 		"{tps}"=>$tps,
