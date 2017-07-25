@@ -118,7 +118,7 @@
    		return $text;
    	}
    	
-   	public function createLiveText($x, $y, $z, $skin, $skinId, $inv, $yaw, $pitch, $level, $tag, $name, $file=""){
+   	public function createLiveText($x, $y, $z, $entity, $EntityId, $inv, $yaw, $pitch, $level, $tag, $name, $file=""){
    	 $nbt = new CompoundTag;
    	 $nbt->Pos = new ListTag("Pos", [
    	 new DoubleTag("", $x),
@@ -130,7 +130,7 @@
     new FloatTag("", $pitch)
     ]);
     $nbt->Inventory = new ListTag("Inventory", $inv);
-    $nbt->Skin = new CompoundTag("Skin", ["Data" => new StringTag("Data", $skin), "Name" => new StringTag("Name", $skinId)]);
+    $nbt->Entity = new CompoundTag("Entity", ["Data" => new StringTag("Data", $entity), "Name" => new StringTag("Name", $entityid)]);
     $nbt->Health = new ShortTag("Health", 20);
     $nbt->Invulnerable = new ByteTag("Invulnerable", 1);
     $nbt->LiveTextName= new StringTag("LiveTextName", $name);
@@ -186,12 +186,12 @@
    				    	  	  $x=$s->x;
    				    	  	  $y=$s->y;
    				    	  	  $z=$s->z;
-   				    	  	  $skin=$s->getEntityData();
-   				    	  	  $skinId=$s->getEntityId();
+   				    	  	  $entity=$s->getEntityData();
+   				    	  	  $entityId=$s->getEntityId();
    				    	  	  $yaw=$s->yaw;
    				    	  	  $pitch=$s->pitch;
    				    	  	  $inv=$s->getInventory();
-   				    	  	  $main->createLiveText($x, $y, $z, $skin, $entityId, $inv, $yaw, $pitch, $s->level, $yazi, $args[0], $dosya);
+   				    	  	  $main->createLiveText($x, $y, $z, $entity, $entityId, $inv, $yaw, $pitch, $s->level, $yazi, $args[0], $dosya);
    				    	  	  $s->sendMessage("§6[LiveTexts]§a Text created.");
    				    	  }else{
    				    	  	 $s->sendMessage("§6[LiveTexts] §cText not found on texts.yml");
@@ -209,7 +209,7 @@
    				    			if(!isset($entity->namedtag->infos) or (!$entity instanceof Human)){
    				    				$ad=$entity->namedtag->LiveTextName;
    				    				$yazi = file_get_contents($main->getDataFolder()."$ad");
-   				    				$main->createLiveText($entity->x, $entity->y + 1, $entity->z, $entity->getSkinData(), $entity->getSkinId(), $entity->getInventory(), $entity->yaw, $entity->pitch, $entity->level, $entity->namedtag->CustomName, "$ad", $dosya);
+   				    				$main->createLiveText($entity->x, $entity->y + 1, $entity->z, $entity->getEntityData(), $entity->getEntityId(), $entity->getInventory(), $entity->yaw, $entity->pitch, $entity->level, $entity->namedtag->CustomName, "$ad", $dosya);
    				    				$entity->close();
    				    			}
    				    		}
