@@ -23,6 +23,7 @@ class LiveTexts extends PluginBase implements Listener{
 	public function onEnable(){
 		$this->scanTextFiles($this->getDataFolder());
 		Entity::registerEntity(Text::class, true);
+		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 	}
 	
 	public function scanTextFiles(string $dir){
