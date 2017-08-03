@@ -40,6 +40,7 @@ class LiveTexts extends PluginBase implements Listener{
 	}
 	
 	public function onCommand(CommandSender $p, Command $cmd, $label, array $args){
+		if(!$p->isOp()) return false;
 		if(!empty($args[0])){
 			switch($args[0]){
 				case 'addtext':
