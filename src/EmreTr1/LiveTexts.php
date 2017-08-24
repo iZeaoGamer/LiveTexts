@@ -28,11 +28,13 @@ class LiveTexts extends PluginBase implements Listener{
 	
 	public function scanTextFiles(string $dir){
 		if(is_dir($dir)){
-			$files = glob($dir . "*.txt");
+			$files = scandir($dir);
 			
 			foreach($files as $file){
-				$name = basename($file, '.txt');
-				$data = trim(str_ireplace("\r\n", "\n", file_get_contents($file)));
+				if(!is_file($dir . $file)) continue;
+	
+				$name = str_ireplace(".txt", "", $file);
+				$data = trim(str_ireplace("\r\n", "\n", file_get_contents($dir . $file)));
 				
 				$this->cache[$name] = $data;
 			}
