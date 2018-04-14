@@ -3,7 +3,7 @@
 namespace EmreTr1;
 
 use pocketmine\entity\{Entity, Creature, FallingSand};
-use pocketmine\network\protocol\AddEntityPacket;
+use pocketmine\network\mcpe\protocol\AddEntityPacket;
 use pocketmine\Player;
 use pocketmine\event\entity\EntityDamageEvent;
 
