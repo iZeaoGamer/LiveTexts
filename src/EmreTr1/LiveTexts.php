@@ -3,7 +3,6 @@
  * Only support .txt files.
  */
 namespace EmreTr1;
-
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\{Command,CommandSender};
 use pocketmine\event\Listener;
@@ -12,7 +11,6 @@ use pocketmine\nbt\tag\{CompoundTag, ListTag, DoubleTag, FloatTag, StringTag};
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\entity\Entity;
-
 class LiveTexts extends PluginBase implements Listener{
 	
 	public $cache = [], $whatid = [];
@@ -39,20 +37,19 @@ class LiveTexts extends PluginBase implements Listener{
 	
 	public function onCommand(CommandSender $p, Command $cmd, string $label, array $args): bool{
 if ($p instanceof Player) {
-                if (strtolower($command->getName()) === "lt") {
+            if (strtolower($cmd->getName()) === "lt") {
                 if (empty($args)) {
                     if(!isset($args[0])) {
                         $p->sendMessage($this->prefix."§aPlease use: §b/lt <subCommand>");
 				      return true;
-				       break;
+                    }
 				    if ($args[0] == "addtext") {
 				    array_shift($args);
 				    $text = implode(" ", $args);
 				    $this->addLiveText($p, $text);
 				    $p->sendMessage($this->prefix."§aLiveText created(without file)");
 				    return true;
-				    }
-				    break;
+				 }
 				 if ($args[0] == "add") {
 				    if(!empty($args[1])){
 				    	$name = $args[1];
@@ -68,13 +65,13 @@ if ($p instanceof Player) {
 				    }else{
 				    	$p->sendMessage($this->prefix."§7/lt add <filename>");
 					return true;
-				    }
-				    break;
+				}
+				    
 				if ($args[0] == "id") {
 				    $this->whatid[$p->getName()] = true;
 				    $p->sendMessage($this->prefix."§eTap a entity for known id");
 				    return true;
-				    break;
+				}
 				if ($args[0] == "remove") {
 				    if(!empty($args[1])){
 				    	$id = $args[1];
@@ -92,6 +89,4 @@ if ($p instanceof Player) {
                     }
                 }
 				 }
-}
-		}
 }
