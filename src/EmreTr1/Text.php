@@ -22,9 +22,9 @@ class Text extends Creature{
 		$this->setDataProperty(Entity::DATA_VARIANT, Entity::DATA_TYPE_INT, 0 | (0 << 8));
 	}
 	
-	public function attack($damage, EntityDamageEvent $event){
+	public function attack($damage, EntityDamageEvent $source){
 		$event->setCancelled(true);
-		parent::attack($damage, $event);
+		parent::attack($damage, $source);
 	}
 	
 	public function onUpdate(int $tick){
