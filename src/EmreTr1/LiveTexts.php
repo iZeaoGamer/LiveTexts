@@ -40,7 +40,7 @@ class LiveTexts extends PluginBase implements Listener{
 	}
 	
 	public function onCommand(CommandSender $p, Command $cmd, string $label, array $args): bool{
-if(!$p->isOp()) return false;
+if(!$p->isOp()) return true;
 		if(!empty($args[0])){
 			switch($args[0]){
 				case "addtext":
@@ -48,6 +48,7 @@ if(!$p->isOp()) return false;
 				    $text = implode(" ", $args);
 				    $this->addLiveText($p, $text);
 				    $p->sendMessage($this->prefix."§aLiveText created(without file)");
+				    return true;
 				    break;
 				case "add":
 				    if(!empty($args[1])){
@@ -56,16 +57,20 @@ if(!$p->isOp()) return false;
 				    		$text = $this->cache[$name];
 				    		$this->addLiveText($p, $text);
 				    		$p->sendMessage($this->prefix. "§aLiveText created(with file)");
+						return true;
 				    	}else{
 				    		$p->sendMessage($this->prefix."§7{$name} file not found!");
+						return true;
 				    	}
 				    }else{
 				    	$p->sendMessage($this->prefix."§7/lt add <filename>");
+					return true;
 				    }
 				    break;
 				case "id":
 				    $this->whatid[$p->getName()] = true;
 				    $p->sendMessage($this->prefix."§eTap a entity for known id");
+				    return true;
 				    break;
 				case 'remove':
 				    if(!empty($args[1])){
@@ -76,6 +81,7 @@ if(!$p->isOp()) return false;
 				    		}
 				    	}
 				    	$p->sendMessage($this->prefix."§aText removed.");
+					return true;
 				    }
 			}
 		}
@@ -88,6 +94,7 @@ if(!$p->isOp()) return false;
 			if(isset($this->whatid[$p->getName()])){
 				$id = $entity->getId();
 				$p->sendMessage($this->prefix."§aEntity ID: {$id}");
+				return true;
 				unset($this->whatid[$p->getName()]);
 			}
 		}
