@@ -41,16 +41,19 @@ class LiveTexts extends PluginBase implements Listener{
 	
 	public function onCommand(CommandSender $p, Command $cmd, string $label, array $args): bool{
 if(!$p->isOp()) return true;
-		if(!empty($args[0])){
-			switch($args[0]){
-				case "addtext":
+				   case "lt":
+				      $p->sendMessage($this->prefix."§aPlease use: §b/lt <subCommand>");
+				      return true;
+				       break;
+				    case "addtext":
 				    array_shift($args);
 				    $text = implode(" ", $args);
 				    $this->addLiveText($p, $text);
 				    $p->sendMessage($this->prefix."§aLiveText created(without file)");
 				    return true;
+				    }
 				    break;
-				case "add":
+				 case "add":
 				    if(!empty($args[1])){
 				    	$name = $args[1];
 				    	if(isset($this->cache[$name])){
@@ -72,7 +75,7 @@ if(!$p->isOp()) return true;
 				    $p->sendMessage($this->prefix."§eTap a entity for known id");
 				    return true;
 				    break;
-				case 'remove':
+				case "remove":
 				    if(!empty($args[1])){
 				    	$id = $args[1];
 				    	foreach($p->level->getEntities() as $e){
