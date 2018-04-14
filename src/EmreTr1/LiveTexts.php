@@ -41,6 +41,8 @@ class LiveTexts extends PluginBase implements Listener{
 	
 	public function onCommand(CommandSender $p, Command $cmd, string $label, array $args): bool{
 if(!$p->isOp()) return true;
+		if(!empty($args[0])){
+-			switch($args[0]){
 				   case "lt":
 				      $p->sendMessage($this->prefix."§aPlease use: §b/lt <subCommand>");
 				      return true;
