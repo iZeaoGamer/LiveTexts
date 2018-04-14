@@ -27,7 +27,7 @@ class Text extends Creature{
 		parent::attack($damage, $source);
 	}
 	
-	public function onUpdate(int $tick){
+	public function onUpdate(int $tick) : bool{
 		if($this->closed) return;
 		$this->setNameTag(LiveTexts::replacedText($this->getBaseText()));
 	}
