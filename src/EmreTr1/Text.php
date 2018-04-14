@@ -28,7 +28,7 @@ class Text extends Creature{
 	}
 	
 	public function onUpdate(int $tick): bool{
-		if($this->closed) return;
+		if($this->closed) return true;
 		$this->setNameTag(LiveTexts::replacedText($this->getBaseText()));
 	}
 
