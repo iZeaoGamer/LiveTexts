@@ -60,4 +60,3 @@ class Text extends Creature{
 		parent::spawnTo($p);
 	}
 }
-?>
