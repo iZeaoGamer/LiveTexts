@@ -43,13 +43,13 @@ class LiveTexts extends PluginBase implements Listener{
 if(!$p->isOp()) return false;
 		if(!empty($args[0])){
 			switch($args[0]){
-				case 'addtext':
+				case "addtext":
 				    array_shift($args);
 				    $text = implode(" ", $args);
 				    $this->addLiveText($p, $text);
 				    $p->sendMessage($this->prefix."§aLiveText created(without file)");
 				    break;
-				case 'add':
+				case "add":
 				    if(!empty($args[1])){
 				    	$name = $args[1];
 				    	if(isset($this->cache[$name])){
@@ -63,7 +63,7 @@ if(!$p->isOp()) return false;
 				    	$p->sendMessage($this->prefix."§7/lt add <filename>");
 				    }
 				    break;
-				case 'id':
+				case "id":
 				    $this->whatid[$p->getName()] = true;
 				    $p->sendMessage($this->prefix."§eTap a entity for known id");
 				    break;
