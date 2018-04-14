@@ -144,4 +144,3 @@ if(!$p->isOp()) return false;
 	}
 	
 }
-?>
