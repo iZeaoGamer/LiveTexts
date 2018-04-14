@@ -88,5 +88,5 @@ if ($p instanceof Player) {
 				 }
                     }
                 }
-				 }
+				 return true;
 }
