@@ -1,9 +1,7 @@
 <?php
-
 /**
  * Only support .txt files.
  */
-
 namespace EmreTr1;
 
 use pocketmine\plugin\PluginBase;
@@ -40,14 +38,14 @@ class LiveTexts extends PluginBase implements Listener{
 	}
 	
 	public function onCommand(CommandSender $p, Command $cmd, string $label, array $args): bool{
-if(!$p->isOp()) return true;
-		if(!empty($args[0])){
--			switch($args[0]){
-				   case "lt":
-				      $p->sendMessage($this->prefix."§aPlease use: §b/lt <subCommand>");
+if ($p instanceof Player) {
+                if (strtolower($command->getName()) === "lt") {
+                if (empty($args)) {
+                    if(!isset($args[0])) {
+                        $p->sendMessage($this->prefix."§aPlease use: §b/lt <subCommand>");
 				      return true;
 				       break;
-				    case "addtext":
+				    if ($args[0] == "addtext") {
 				    array_shift($args);
 				    $text = implode(" ", $args);
 				    $this->addLiveText($p, $text);
@@ -55,7 +53,7 @@ if(!$p->isOp()) return true;
 				    return true;
 				    }
 				    break;
-				 case "add":
+				 if ($args[0] == "add") {
 				    if(!empty($args[1])){
 				    	$name = $args[1];
 				    	if(isset($this->cache[$name])){
@@ -72,12 +70,12 @@ if(!$p->isOp()) return true;
 					return true;
 				    }
 				    break;
-				case "id":
+				if ($args[0] == "id") {
 				    $this->whatid[$p->getName()] = true;
 				    $p->sendMessage($this->prefix."§eTap a entity for known id");
 				    return true;
 				    break;
-				case "remove":
+				if ($args[0] == "remove") {
 				    if(!empty($args[1])){
 				    	$id = $args[1];
 				    	foreach($p->level->getEntities() as $e){
@@ -86,73 +84,14 @@ if(!$p->isOp()) return true;
 				    		}
 				    	}
 				    	$p->sendMessage($this->prefix."§aText removed.");
-					return true;
+				    }
 				    }
 			}
+			return true;
+				 }
+                    }
+                }
+				 }
+}
 		}
-	}
-	
-	public function onDamage(EntityDamageEvent $event){
-		if($event instanceof EntityDamageByEntityEvent){
-			$p = $event->getDamager();
-			$entity = $event->getEntity();
-			if(isset($this->whatid[$p->getName()])){
-				$id = $entity->getId();
-				$p->sendMessage($this->prefix."§aEntity ID: {$id}");
-				return true;
-				unset($this->whatid[$p->getName()]);
-			}
-		}
-	}
-	
-	public function addLiveText($pos, string $text){
-	$nbt = new CompoundTag;
-	$nbt->Pos = new ListTag("Pos", [new DoubleTag("", $pos->x), new DoubleTag("", $pos->y), new DoubleTag("", $pos->z)]);
-	$nbt->Rotation = new ListTag("Rotation", [new FloatTag("", 0), new FloatTag("", 0)]);
-	$nbt->Motion = new ListTag("Pos", [new DoubleTag("", 0), new DoubleTag("", 0), new DoubleTag("", 0)]);
-   $nbt->baseText = new StringTag("baseText", $text);
-
-	$entity = Entity::createEntity("Text", $pos->level, $nbt);
-	$entity->spawnToAll();
-	}
-	
-	public static function replacedText(string $text){ 
-		$server = Server::getInstance();
-		$tps=$server->getTicksPerSecond();
-		$onlines=count($server->getOnlinePlayers());
-		$maxplayers=$server->getMaxPlayers();
-		$worldsc=count($server->getLevels());
-		$variables=[
-		"{line}"=>"\n",
-		"{tps}"=>$tps,
-		"{maxplayers}"=>$maxplayers,
-		"{onlines}"=>$onlines,
-		"{worldscount}"=>$worldsc,
-		"{ip}"=>$server->getIp(),
-		"{port}"=>$server->getPort(),
-		"{motd}"=>$server->getMotd(),
-		"{network}"=>$server->getNetwork()->getName()];
-		
-		foreach($variables as $var=>$ms){
-			$text=str_ireplace($var, $ms, $text);
-		}
-		return $text;
-	}
-   	
-	public static function replaceForPlayer(Player $p, string $text){
-		$specialvars = [
-		"{name}"=>$p->getName(),
-		"{nametag}"=>$p->getNameTag(),
-		"{hunger}"=>$p->getFood(),
-		"{health}"=>$p->getHealth(),
-		"{maxhealth}"=>$p->getMaxHealth(),
-		"{nbt}"=>$p->namedtag,
-		"{level}"=>$p->getLevel()->getFolderName()];
-		
-		foreach($specialvars as $var=>$ms){
-			$text = str_ireplace($var, $ms, $text);
-		}
-		return $text;
-	}
-	
 }
